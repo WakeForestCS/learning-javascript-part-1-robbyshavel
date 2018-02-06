@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type ="text/javascript">
+function calculateBMI()
+{
+  var height = Number(document.getElementById("height").value);
+  var weight = Number(document.getElementById("weight").value);
+  height/=39.3701;
+  weight/=2.20462;
+
+  var BMI = weight/Math.pow(height,2);
+
+  document.getElementById("output").innerText = Math.round(100*BMI)/100;
+  console.log(output);
+  if(BMI <18.5){
+    document.getElementById("comment").innerText = "underweight.";
+  }
+  if (BMI >=18.5 && BMI < 25) {
+    document.getElementById("comment").innerText = "normal weight.";
+  }
+  if (BMI >=25 && BMI < 30) {
+    document.getElementById("comment").innerText = "overweight.";
+  }
+  if (BMI >=30) {
+    document.getElementById("comment").innerText = "obese.";
+  }
+}
+var functon = calculateBMI; //This is treating a function as a first class citizen, as it assigned to a variable;
+                            //it is also related to scope. Because it is declared outside of a function, this is a
+                            //global variable. If it was declared inside a function, it would not have been
+</script>
+  </head>
+  <link rel="shortcut icon" href="data:image/png;base64,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" />
+  <body>
+    <div class="header" id"myHeader">
+    <h1 align= "center">BMI Calculator</h1>
+  </div>
+    <div>
+    <br><br><br>
+    <p>Enter your height in inches: <input type="text" id="height"/></p>
+    <p>Enter your weight in lbs: <input type="text" id="weight"/></p>
+    <img src="https://www.celebrityslim.co.uk/media/1985882/c%20slim%20bmi%20a4_2.jpg" alt = "BMI Chart"
+    IMG STYLE = "position: absolute; TOP: 150px; left: 800px; width: 620px; height:400px">
+    <input type="submit" value="Compute BMI" onclick="functon();">     <!-- This is a callback function because the button's parameter is a function-->
+    <h3> Your BMI is <span id = "output">?</span></h3>
+    <h3> This means you are <span id = "comment">?</span></h3>
+  </div>
+  </body>
+</html>
+<!-- This is event driven programming because the entire project sits in memory until the user performs an action, or event, which starts a function -->
